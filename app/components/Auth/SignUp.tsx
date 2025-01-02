@@ -9,7 +9,7 @@ type SignUpProps = {
 
 const SignUp: FC<SignUpProps> = ({ showLogin }) => {
   const data = useActionData<typeof authAction>();
-  console.log("returned: ", data);
+  // console.log("returned: ", data);
   return (
     <Box
       style={{

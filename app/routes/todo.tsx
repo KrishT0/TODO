@@ -21,14 +21,14 @@ type Todo = {
 
 export const clientLoader = async () => {
   const accessToken = localStorage.getItem("accessToken");
-  console.log(accessToken);
+  // console.log(accessToken);
   if (accessToken == null) {
-    console.log("Redirecting to login");
+    // console.log("Redirecting to login");
     return { redirectTo: "/" };
   }
   try {
     const data = await getTodos();
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     console.error(error);
@@ -38,14 +38,14 @@ export const clientLoader = async () => {
 
 export const clientAction = async ({ request }: { request: Request }) => {
   const formData = await request.formData();
-  console.log(formData);
+  // console.log(formData);
   const actionType = formData.get("actionType");
 
   if (actionType === "addTodo") {
     try {
       const title = formData.get("title") as string;
       const response = await addTodo(title);
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.error(error);
     }
@@ -55,11 +55,11 @@ export const clientAction = async ({ request }: { request: Request }) => {
     try {
       const id = formData.get("id") as string;
       const completed = formData.get("completed") as string;
-      console.log(id, completed);
+      // console.log(id, completed);
       const completedValue =
         completed === "completed" ? "not_started" : "completed";
       const response = await changeStatus({ id, completed: completedValue });
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.error(error);
     }
@@ -70,7 +70,7 @@ export const clientAction = async ({ request }: { request: Request }) => {
 
 export default function Index() {
   const loaderData = useLoaderData<typeof clientLoader>();
-  console.log(loaderData);
+  // console.log(loaderData);
   const navigate = useNavigate();
 
   useEffect(() => {

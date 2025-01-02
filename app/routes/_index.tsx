@@ -82,7 +82,7 @@ export default function Index() {
   const [showLogin, setShowLogin] = useState(true);
   const actionData = useActionData<typeof clientAction>();
   const navigate = useNavigate();
-  console.log(actionData);
+  // console.log(actionData);
 
   useEffect(() => {
     if (actionData?.redirectTo) {

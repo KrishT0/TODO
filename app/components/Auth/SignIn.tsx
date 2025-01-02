@@ -9,7 +9,7 @@ type ShowLoginProps = {
 
 const SignIn: FC<ShowLoginProps> = ({ showLogin }) => {
   const data = useActionData<typeof authAction>();
-  console.log(data?.fieldErrors);
+  // console.log(data?.fieldErrors);
   return (
     <Box
       style={{
